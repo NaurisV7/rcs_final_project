@@ -6,8 +6,6 @@ include_once "DB.php";
 
 $id = $_SESSION['ID'];
 
-echo $_POST['text'];
-
 $sql = "SELECT * FROM todo WHERE user_id='$id'";
 
 $result = $conn->query($sql);
@@ -17,21 +15,22 @@ if ($result->num_rows > 0) {
     <form action="" method="POST">
         <?php
         while ($row = $result->fetch_assoc()) {
-                    echo "<span id=spanu" . $row['id'] . ">" . $row['user_todo'] . "</span>";
+                    echo "<span id=spanu" . $row['id'] . " class=" . $row['completed'] .">" . $row['user_todo'] . "</span>";
                     ?>
-                    <input type="checkbox" name="id[]" value="">
+                    <input type="text" class="none" id="su<?= $row['id'];?>" name="text[]" value="<?= $row['user_todo'];?>">
+                    <input type="hidden" name="textid[]" value="<?= $row['id'];?>">
+                    <input type="checkbox" name="id[]" value="<?= $row['id'];?>">
                     <input type="button" name="update" id="u<?= $row['id'];?>" class="update u<?= $row['id'];?>" value="Update">
-                    <input type="submit" name="save" id="su<?= $row['id'];?>" class="su<?= $row['id'];?> none" value="Save">
-
+                    <input type="checkbox" name="mark[]" id="<?= $row['id'];?>" class=" mark mark<?= $row['id'];?>" value="<?=$row['completed'];?>">
                     <?php
                     echo "<br>";
         }
         ?>
-        <button type="submit" name="accepttodo">Accept changes</button>
+        <button type="submit" id="submit" name="accepttodo">Accept changes</button>
     </form>
     <?php
 }
-print_r($_POST);
+
 
     
 
