@@ -1,17 +1,21 @@
 <?php
 
 include_once "DB.php";
-include_once "../final/register.php";
 
 if (isset($_POST['submit'])) {
+    
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $sql = "INSERT INTO register (username, password) VALUES  ('$username', '$password')";
-
+    
+    global $conn;
     if ($conn->query($sql)) {
-        echo "link to successfull register!";
+        return "successfull!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+
+
 }

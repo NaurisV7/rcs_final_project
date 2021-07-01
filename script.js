@@ -27,41 +27,27 @@ submitarray.forEach(element => element.addEventListener("click", function () {
     })
 }));
 
-markarray.forEach(element => element.addEventListener("click", function () {
+// markarray.forEach(element => element.addEventListener("click", function () {
+//     if (element.value === "done"){
+//         element.value = "undone"
+//     } else {
+//         element.value = "done";
+//     }
+    
+    
+//     // let number = element.classList[1];
+//     // let update = document.getElementById("u" + number);
+//     // let span = document.getElementById("spanu" + number);
+//     // let undone = document.getElementById("undoneu" + number);
 
-    if (element.value === "done"){
-        element.value = "undone"
-    } else {
-        element.value = "done";
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // let number = element.classList[1];
-    // let update = document.getElementById("u" + number);
-    // let span = document.getElementById("spanu" + number);
-    // let undone = document.getElementById("undoneu" + number);
+//     // if (element.classList[2] === "done") {
+//     //     element.classList.remove("done");
+//     //     element.classList.add("none")
+//     //     span.classList.add("line")
+//     //     update.classList.add("none");
+//     //     undone.classList.remove("none")
+//     // } 
 
-    // if (element.classList[2] === "done") {
-    //     element.classList.remove("done");
-    //     element.classList.add("none")
-    //     span.classList.add("line")
-    //     update.classList.add("none");
-    //     undone.classList.remove("none")
-    // } 
-
-}))
+// }))
 
 

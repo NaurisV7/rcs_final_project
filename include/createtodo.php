@@ -1,6 +1,5 @@
 <?php
 
-include_once "../final/todo.php";
 include_once "DB.php";
 session_start();
 
@@ -11,10 +10,7 @@ if(isset($_POST['todosubmit'])) {
 
     $sql = "INSERT INTO todo (user_id, user_todo) VALUES ('$user_id', '$todo')";
 
-    if($conn->query($sql)) {
-        echo "you got it!";
-    } else {
+    if(!$conn->query($sql)) {
         echo "error" . $sql . "<br>" . $conn->error;
-    }
-
+    } 
 }
